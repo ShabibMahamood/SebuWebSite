@@ -6,6 +6,22 @@
   <title>Calvin Sebu</title>
   <link rel="icon" type="image/x-icon" href="android-chrome-512x512-photoaidcom-cropped (1).png">
   <style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -14,6 +30,7 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #000000;
+    animation: fadeIn 1s ease-out;
   }
 
   header {
@@ -21,74 +38,108 @@
     color: #fff;
     text-align: center;
     padding: 1rem;
-    background: ("twitter.png"); /* Replace with your image path */
+    background: ("twitter.png");
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 100px rgb(160, 242, 248);
     border-radius: 50px;
-    
+    animation: pulse 2s infinite;
   }
 
   @font-face {
-  font-family: myFirstFont;
-  src: url(Blanka-Regular.otf);
-}
+    font-family: myFirstFont;
+    src: url(Blanka-Regular.otf);
+  }
 
   h1 {
     font-size: 2rem;
     font-family: myFirstFont;
     letter-spacing: 0.5pc;
     margin-bottom: 0;
+    animation: slideIn 1s ease-out;
   }
 
-    nav ul {
-        padding: 0;
-    }
+  nav ul {
+    padding: 0;
+  }
 
-    nav ul li {
-        display: inline;
-        margin-right: 10px;
-    }
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
 
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-    }
+  nav ul li:nth-child(1) { animation-delay: 0.2s; }
+  nav ul li:nth-child(2) { animation-delay: 0.4s; }
+  nav ul li:nth-child(3) { animation-delay: 0.6s; }
+  nav ul li:nth-child(4) { animation-delay: 0.8s; }
 
-    h1, h2, h3 {
-        color: #333;
-    }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
 
-    section {
-        background-color: #fff;
-        margin: 20px 0;
-        padding: 20px;
-        border-radius: 5px;
-    }
+  nav ul li a:hover {
+    color: rgb(160, 242, 248);
+  }
 
-    .release, .upcoming-release {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
+  h1, h2, h3 {
+    color: #333;
+  }
 
-    #social-links a {
-        display: inline-block;
-        margin-right: 10px;
-        font-size: 24px;
-        color: #333;
-        text-decoration: none;
-    }
+  section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+  }
 
-    footer {
-        text-align: center;
-        margin-top: 20px;
-        padding-top: 10px;
-        border-top: 1px solid #ddd;
-    }
-    </style>
+  #home { animation-delay: 0.2s; }
+  #releases { animation-delay: 0.4s; }
+  #upcoming { animation-delay: 0.6s; }
+  #profile { animation-delay: 0.8s; }
+
+  .release, .upcoming-release {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  .release:hover, .upcoming-release:hover {
+    transform: scale(1.03);
+  }
+
+  #social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  #social-links a:hover {
+    transform: scale(1.2);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    animation: fadeIn 1s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  </style>
 </head>
 <body>
     <header>
